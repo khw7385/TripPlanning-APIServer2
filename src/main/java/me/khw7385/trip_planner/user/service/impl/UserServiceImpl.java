@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService {
             throw new UserException(UserExceptionType.NOT_DUPLICATE_CHECK_LOGIN_ID);
         }
         User user = User.builder()
-                .loginId(command.userId())
+                .loginId(command.loginId())
                 .password(passwordEncoder.encode(command.password()))
-                .loginId(command.userId())
+                .name(command.name())
                 .build();
 
         User saveUser = userRepository.save(user);
