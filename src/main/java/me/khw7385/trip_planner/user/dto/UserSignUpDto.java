@@ -4,10 +4,10 @@ import lombok.Builder;
 
 public class UserSignUpDto {
     @Builder
-    public record Request(String userId, String password, String name, boolean isDoneDuplicateCheck){
+    public record Request(String loginId, String password, String name, boolean isDoneDuplicateCheck){
         public Command toCommand(){
             return Command.builder()
-                    .userId(userId)
+                    .loginId(loginId)
                     .password(password)
                     .name(name)
                     .isDoneDuplicateCheck(isDoneDuplicateCheck)
@@ -16,7 +16,7 @@ public class UserSignUpDto {
     }
 
     @Builder
-    public record Command(String userId, String password, String name, boolean isDoneDuplicateCheck){
+    public record Command(String loginId, String password, String name, boolean isDoneDuplicateCheck){
     }
     @Builder
     public record Response(String loginId, String password, String name){}
